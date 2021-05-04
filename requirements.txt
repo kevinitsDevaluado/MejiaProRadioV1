@@ -38,14 +38,11 @@ django-audiofield==0.10.0
 django-bootstrap4==2.3.1
 django-celery==3.3.1
 django-crum==0.7.5
-django-facebook==6.0.3
 django-pwa==1.0.10
-django-social-share==2.2.1
 django-storages==1.11.1
 django-tinymce==3.2.0
 django-weasyprint==1.1.0
 django-widget-tweaks==1.4.8
-djangorestframework==3.12.2
 freeze==1.0.10
 gunicorn==20.0.4
 html5lib==1.0.1
@@ -101,9 +98,5 @@ vine==5.0.0
 virtualenv==20.0.31
 virtualenvwrapper-win==1.2.6
 wcwidth==0.2.5
-WeasyPrint==52.5
 webencodings==0.5.1
 whitenoise==5.2.0
-wrapt==1.12.1
-xhtml2pdf==0.2.4
-zope.interface==5.1.0
