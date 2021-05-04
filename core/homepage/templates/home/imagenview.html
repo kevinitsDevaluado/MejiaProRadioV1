@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+
+<body style="height:100%">
+    {% include 'home/header.html' %}
+
+    <!-- Hero Start -->
+
+    <section class="hero2 pricing-table" >
+        <div style="margin-top:7%; color:black ; margin-left: 5%;">
+            <a href="{% url 'home:galery_list' %}" class="btn btn-dark my-3" style="background-color:red">Regresar</a>
+
+            <div class="row justify-content-center">
+
+                <div class="col">
+
+                    <div>
+
+                        <div class="row" style="height: 90vh;">
+                            <div class="col">
+                                <img width="900px" height="500px" src="{{photo.image.url}}">
+
+                            </div>
+                            <br>
+                            <div class="col">
+                                <div class="container">
+                                <h1 style="color:white; text-align:center">{{ photo.category.name }}</h1>
+                                <p style="color:white; text-align:justify">{{photo.description}}</p>
+                                
+                                    <div id="disqus_thread"></div>
+                                    <script>
+                                        /**
+                                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                                        /*
+                                        var disqus_config = function () {
+                                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                        };
+                                        */
+                                        (function() { // DON'T EDIT BELOW THIS LINE
+                                        var d = document, s = d.createElement('script');
+                                        s.src = 'https://mejiapromusiccoment.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                        })();
+                                    </script>
+                                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+    </section>
+
+    <h1 style="margin-top: 5%;" hidden></h1>
+
+    </button>
+
+
+    {% include 'home/footer.html' %}
+
+</body>
+{% endblock body %}

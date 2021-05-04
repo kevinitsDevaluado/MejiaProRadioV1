@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% load widget_tweaks %}
+{% block head %}
+<script src="{% static 'lib/moment-2.25.3/moment-with-locales.js' %}"></script>
+<script src="{% static 'lib/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js' %}"></script>
+<link href="{% static 'lib/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet"/>
+
+<link href="{% static 'lib/bootstrap-touchspin-4.3.0/jquery.bootstrap-touchspin.css' %}" rel="stylesheet"/>
+<script src="{% static 'lib/bootstrap-touchspin-4.3.0/jquery.bootstrap-touchspin.js' %}"></script>
+{% endblock %}
+{% block contenido %}
+    <form method="post" action="." enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Subir Imagenes
+                </h3>
+
+            </div>
+           <div class="card-content">
+            {% csrf_token %}
+
+            <div class="form-group m-3">
+                <label>Descripción</label>
+                <input required name="description" type="text" placeholder="Ingresa la  descripción"
+                    class="form-control">
+            </div>
+
+            <div class="form-group m-3">
+                <label>Selecciona el álbum</label>
+                <select name="category" class="form-control">
+                    <option value='none'>Selecciona el álbum...</option>
+
+                    {% for category in categories %}
+                    <option value='{{category.id}}'>{{category.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+            <div class="form-group m-3">
+                <label>Crea un nuevo Álbum</label>
+                <input name="category_new" type="text" placeholder="Crea un nuevo Almbum"
+                    class="form-control">
+                <p style="color: red">Este campo debe ser llenado solo si necesitas crear un nuevo álbum...</p>
+            </div>
+
+            <div class="form-group m-3">
+                <label>Subir Imagen</label>
+                <input required name="images" type="file" multiple class="form-control-file">
+            </div>
+
+
+           </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary btn-flat">
+                    <i class="fas fa-save"></i> Guardar registro
+                </button>
+                <a href="{% url 'erp:galery_list' %}" class="btn btn-danger btn-flat">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+            </div>
+        </div>
+    </form>    
+{% endblock %}

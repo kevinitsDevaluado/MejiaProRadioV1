@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+{% load static %}
+<!--CARGAMOS LAS LIBRERIAS DEL DATATABLES-->    
+{% block head %}
+    <link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+    <link rel="stylesheet"
+          href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+    <script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+    <script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+
+    
+    {% block head_list %}
+        
+    {% endblock head_list %}
+        
+
+{% endblock head %}
+<!--CONTENIDO PRINCIPAL-->
+{% block contenido %}
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title">
+                <i class="fas fa-search"></i>
+                
+                {{title}}
+                    
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+        
+                        <div class="card">
+                            <div class="card-header">
+                                Categorías
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="{% url 'erp:galery_list' %}">Todo</a>
+                                </li>
+                                {% for category in categories %}
+                                <li class=" list-group-item">
+                                    <a href="{% url 'erp:galery_list' %}?category={{category.name}}">
+                                        {{category.name}}
+                                    </a>
+                                </li>
+                                {% endfor %}
+        
+        
+                                <a href="{% url 'erp:galery_create' %}" class="btn btn-dark btn-block btn-sm m-1">Agregar Foto</a>
+        
+                            </ul>
+                        </div>
+        
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+        
+                            {% for photo in photos %}
+                            <div class="col-md-4">
+                                <div class="card my-2">
+                                    
+                                    <img class="image-thumbail" style="margin-left: 12px;" src="{{photo.image.url}}" alt="Card image cap" width="250px" height="200px">
+        
+                                    <div class="card-body">
+                                        <small>Category: {{photo.category.name}}</small>
+                                    </div>
+                                    <a href="#" class="btn btn-outline-dark btn-sm m-1">Ver</a>
+                                    <a href="{% url 'erp:galery_delete' photo.id %}" type="button" class="btn btn-danger">Borrar</a>
+
+                                </div>
+                            </div>
+                            {% empty %}
+                           <center>
+                            <h3>NO HAY IMAGENES...</h3>
+                           </center>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+{% endblock contenido %}

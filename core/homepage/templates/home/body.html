@@ -1,0 +1,231 @@
+{% extends 'index.html' %} {% load static %} {% block body %}
+<body >
+  {% include 'home/header.html' %}
+
+
+  <!-- Hero Start -->
+  <section class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 offset-md-1 col-md-11">
+          <div class="swiper-container hero-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide-content d-flex align-items-center">
+                <div class="single-slide" style="color: white">
+                  <h1
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    style="color: white"
+                  >
+                  ASOCIACIÓN   
+                  <br />
+                    MEJIA PRO MUSIC
+                  </h1>
+                  <p
+                    data-aos="fade-right"
+                    data-aos-delay="600"
+                    style="color: white"
+                  >
+                  Deejays, Animadores y Productores..
+                  </p>
+                  <a
+                    data-aos="fade-right"
+                    data-aos-delay="900"
+                    href="{% url 'home:galery_list' %}"
+                    class="btn btn-primary"
+                    >GALERÍA</a
+                  >
+                </div>
+              </div>
+              <div class="swiper-slide slide-content d-flex align-items-center">
+                <div class="single-slide">
+                  <h1
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    style="color: white; font-size:60px"
+                  >
+                    MEJIA PRO RADIO<br />
+                    "LA MEJOR PROGRAMACIÓN"
+                  </h1>
+                  <p
+                    data-aos="fade-right"
+                    data-aos-delay="600"
+                    style="color: white"
+                  >
+                  Disfrute de todos nuestros programas con contenidos de información <br> periodística, educativa, cultural y de entretenimiento..
+                  </p>
+                  <a
+                    data-aos="fade-right"
+                    data-aos-delay="900"
+                    href="{% url 'home:radio' %}"
+                    class="btn btn-primary"
+                    >MEJÍA PRO RADIO</a
+                  >
+                </div>
+              </div>
+             
+              <div class="swiper-slide slide-content d-flex align-items-center">
+                <div class="single-slide">
+                  <h1
+                    data-aos="fade-right"
+                    data-aos-delay="200"
+                    style="color: white; font-size:60px"
+                  >
+                  ACTUALIZACIONES
+                  <br />
+                  PACKS MENSUALES
+                  </h1>
+                  <p
+                    data-aos="fade-right"
+                    data-aos-delay="600"
+                    style="color: white"
+                  >
+                    Con nuestras versiones para Deejay como: <br> Remix, Extended, Intros, Starter, Opening, Mashup y mucho más. 
+                  </p>
+                  <a
+                    data-aos="fade-right"
+                    data-aos-delay="900"
+                    href="{% url 'home:musica' %}"
+                    class="btn btn-primary"
+                    >MÚSICA</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Control -->
+      <span class="arr-left"><i class="fa fa-angle-left"></i></span>
+      <span class="arr-right"><i class="fa fa-angle-right"></i></span>
+    </div>
+    <div class="texture"></div>
+    <div class="diag-bg"></div>
+  </section>
+  <!-- Hero End -->
+  <!-- Call To Action Start -->
+  <br>
+  <section class="cta" data-aos="fade-up" data-aos-delay="0" >
+    <div class="container">
+      <div
+        class="cta-content d-xl-flex align-items-center justify-content-around text-center text-xl-left"
+      >
+        <div class="content" data-aos="fade-right" data-aos-delay="200">
+          <h2>Música en vivo las 24 Horas</h2>
+          <p>Tu gran alternativa en radio Online, con los mejores DJ's.</p>
+        </div>
+        <div
+          class="subscribe-btn"
+          data-aos="fade-left"
+          data-aos-delay="400"
+          data-aos-offset="0"
+        >
+          <a href="{% url 'home:radio' %}" class="btn btn-primary"
+            >ESCÚCHANOS EN VIVO - MEJIA PRO RADIO</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call To Action End -->
+  <!-- PUBLICIDAD Start -->
+  <!-- Hero Start -->
+  <br>
+  <section class="hero3" >
+    <div class="container">
+      <div class="title text-center">
+        <h6 class="title-primary">ZONA PUBLICITARIA</h6>
+        <h1 class="title-blue">NUESTROS AUSPICIANTES</h1>
+      
+      </div>
+      <div class="row" >
+
+        <div class="swiper-container hero-slider">
+          
+          <div class="swiper-wrapper">
+            {% for c in var %}
+
+            <div class="swiper-slide slide-content d-flex">
+  
+              <div class="single-slide">
+              
+                  <img
+                  src="{{ c.image.url }}"
+                  alt=""
+                  style="margin-left:20%"
+                  height="400px"
+                  width="800px"
+                />     
+                <center>
+                  <div
+                  class="subscribe-btn"
+                  data-aos="fade-left"
+                  data-aos-delay="400"
+                  data-aos-offset="0"
+                >
+                  <a href="{{ c.link }}" class="btn btn-primary" target="_blank"
+                    >VISITANOS - {{ c.nombre }} </a>
+                  >
+                </div>
+                </center>
+              </div>
+              
+            </div>
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="texture"></div>
+    <div class="diag-bg"></div>
+    <br> <br>
+<div class="container">
+  <div class="row">
+
+  <div class="col-md-4">
+    
+    <img src="{% static 'assets/mejia/pauta.jpg' %}" alt="..." class="rounded-circle" width="100%" height="100%">
+
+  </div>  <div class="col-md-4">
+    <img src="{% static 'assets/mejia/TU2.jpg' %}" alt="..." class="rounded-circle" width="100%" height="100%">
+  </div>  <div class="col-md-4">
+    <img src="{% static 'assets/mejia/pauta.jpg' %}" alt="..." class="rounded-circle" width="100%" height="100%">
+  </div>
+  </div>
+</div>
+  </section>
+ <!-- Inicio. radio hosting USAstreams.com html5 player -->
+<!-- Licencia: GRATIS-XDF4543ERF -->
+<iframe name="contenedorPlayer" class="cuadroBordeado" allow="autoplay" width="0px" height="0px" marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no  src="https://cp.usastreams.com/pr2g/APPlayerRadioHTML5.aspx?stream=https://ssradioonline.com/proxy/mejiapro?mp=/stream&fondo=05&formato=mpeg&color=14&titulo=2&autoStart=1&vol=5&tipo=4&nombre=Radio+TOP40&imagen=https://cp.usastreams.com/playerHTML5/img/cover.png"></iframe>
+<!-- En players responsive puede modificar el weight a sus necesidades, Por favor no modifique el resto del codigo para poder seguir ofreciendo este servicio gratis  -->
+<!-- Fin. USAstreams.com html5 player -->
+  <!-- Hero End -->
+  <!-- Featured End -->
+  <!-- Pricing Start -->
+  
+  <!-- Pricing End -->
+  <!-- Testimonial and Clients Start -->
+
+  <!-- Call To Action 2 End -->
+  <!-- Footer Start -->
+  {% include 'home/footer.html' %}
+
+  <!-- Footer Endt -->
+  <!--jQuery-->
+  <script src="{% static 'assets/js/jquery-3.3.1.js' %}"></script>
+  <!--Plugins-->
+  <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+  <script src="{% static 'assets/js/loaders.css.js' %}"></script>
+  <script src="{% static 'assets/js/aos.js' %}"></script>
+  <script src="{% static 'assets/js/swiper.min.js' %}"></script>
+  <script src="{% static 'assets/js/lightgallery-all.min.js' %}"></script>
+  <!--Template Script-->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  
+
+</body>
+{% endblock %}

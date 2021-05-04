@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+
+<body>
+    {% include 'home/header.html' %}
+
+        <!-- Hero Start -->
+        
+        <section class="hero4" >
+              <div style="margin-top:125px; color:white ;" >
+                
+                {% for c in curso %}
+
+                <div>
+                    <div class="row" style="margin-top:250px">
+                        
+                        <h1 style="text-align:center">
+                            {{c.title}}
+                        </h1>
+                
+                        <div class="col-6" style="margin-left: 80px;">
+                            <iframe src="{{c.link}}" width="100%" height="500" style="border:none;overflow:hidden;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                        </div>
+
+                        <div class="col-5">
+                            <div class="card" style="background-color: #F2F2F2;">
+    
+                                <div id="fb-root"></div>
+                                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v10.0" nonce="AThvmZM0"></script>
+                                <div class="fb-comments" data-href="https://www.facebook.com/Alexandra.Soledad1/videos/4155226167823655" data-width="" data-numposts="2"></div>
+                                
+                        </div>
+                       
+                        </div>
+                        
+                            
+                       
+                    </div>
+
+                </div>
+                </div>
+          
+            
+
+                <a href="{{c.usuario.linkCelular}}" class="btn btn-success" style="text-align: center; margin-left: 100px;">ENVÍA TUS SALUDOS A NUESTRO WHATSAPP <i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                {% endfor %}
+                <audio class="Audio-1" src="https://ssradioonline.com/proxy/mejiapro?mp=/stream" autoplay="true" controls style="width: 180px;"></audio>
+                
+              
+          </section>
+      
+
+    {% include 'home/footer.html' %}
+
+</body>
+{% endblock body %}

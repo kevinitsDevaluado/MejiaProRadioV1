@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+
+<body style="height:100%">
+    {% include 'home/header.html' %}
+
+        <!-- Hero Start -->
+        
+        <section class="hero4 pricing-table" style="height:100%">
+              <div style="margin-top:10%; color:black ; margin-left: 90px;" >
+       
+                <div class="container">
+                    
+    <div class="card card-default">
+        <div class="card-header">
+            <h3 class="card-title" style="text-align:center">
+                GALERÍA
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+        
+                        <div class="card">
+                            <div class="card-header" style="background:#210B61; color:white">
+                                CATEGORÍAS
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="{% url 'home:galery_list' %}">TODO</a>
+                                </li>
+                                {% for category in categories %}
+                                <li class=" list-group-item">
+                                    <a href="{% url 'home:galery_list' %}?category={{category.name}}">
+                                        {{category.name}}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+        
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+        
+                            {% for photo in photos %}
+                            <div class="col-md-4">
+                                <div class="card my-2">
+                                    
+                                    <img class="image-thumbail" style="margin-left: 12px; margin-top:5px;" src="{{photo.image.url}}" alt="Card image cap" width="210px" height="200px">
+        
+                                    <div class="card-body">
+                                        <small>Categoría: {{photo.category.name}}</small>
+                                    </div>
+                                    <a href="{% url 'home:photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1" style="background:#210B61; color:white">Ver</a>
+
+                                </div>
+                            </div>
+                            {% empty %}
+                           <center>
+                            <h3>NO HAY IMAGENES...</h3>
+                           </center>
+                            {% endfor %}
+     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+                </div>
+                 
+                </div>
+          
+  
+            </section>
+              
+ 
+        <h1 style="margin-top: 5%;" hidden></h1>
+
+        </button>
+        
+
+    {% include 'home/footer.html' %}
+
+</body>
+{% endblock body %}
