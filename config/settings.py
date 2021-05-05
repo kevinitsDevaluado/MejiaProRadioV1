@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hwx)nobmmrixp1+)m^2+fe%t@dqo9xx*f3$jenh%-$19rk^_#8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://mejiaproradio.herokuapp.com/']
 #ALLOWED_HOSTS = ['192.168.0.111']
 
 
