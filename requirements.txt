@@ -14,7 +14,6 @@ chardet==3.0.4
 colorama==0.4.3
 constantly==15.1.0
 cryptography==3.1.1
-cx-Oracle==8.0.1
 distlib==0.3.1
 dj-database-url==0.5.0
 Django==3.0.4
